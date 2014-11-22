@@ -1,0 +1,11 @@
+C:\Users\Daskalov\Desktop\Unity Lessons\Nebulus\Temp\bin\Debug\Assembly-CSharp.dll
+C:\Users\Daskalov\Desktop\Unity Lessons\Nebulus\Temp\bin\Debug\Assembly-CSharp.pdb
+C:\Users\Daskalov\Desktop\Unity Lessons\Nebulus\Temp\bin\Debug\UnityEditor.dll
+C:\Users\Daskalov\Desktop\Unity Lessons\Nebulus\Temp\bin\Debug\UnityEngine.dll
+C:\Users\Daskalov\Desktop\Unity Lessons\Nebulus\Temp\bin\Debug\Mono.Cecil.dll
+C:\Users\Daskalov\Desktop\Unity Lessons\Nebulus\Temp\bin\Debug\nunit.framework.dll
+C:\Users\Daskalov\Desktop\Unity Lessons\Nebulus\Temp\bin\Debug\Unity.DataContract.dll
+C:\Users\Daskalov\Desktop\Unity Lessons\Nebulus\Temp\bin\Debug\ICSharpCode.NRefactory.dll
+C:\Users\Daskalov\Desktop\Unity Lessons\Nebulus\obj\Debug\Assembly-CSharp-vs.csprojResolveAssemblyReference.cache
+C:\Users\Daskalov\Desktop\Unity Lessons\Nebulus\obj\Debug\Assembly-CSharp.dll
+C:\Users\Daskalov\Desktop\Unity Lessons\Nebulus\obj\Debug\Assembly-CSharp.pdb
