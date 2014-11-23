@@ -51,7 +51,7 @@ public class Character : MonoBehaviour {
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                //Character jump
-                isJump = true;
+               // isJump = true;
             }
         }
 	}
