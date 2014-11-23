@@ -2,17 +2,18 @@
 using System.Collections;
 
 public class Character : MonoBehaviour {
-    GameObject[] Holes;
+    
     public Transform Decore;
-    public float jumpForce = 100;
+    public float JumpForce = 100;
     public float MoveSpeed = 1f;
+
+    GameObject[] Holes;
     float totalRotate = 0;
     Vector3 posit , scale;
     bool ActivateElevator = false;
     bool ActiveHole = true;
     bool isLive = true;
-    bool isGrounded = false;
-    bool isJump = false;
+    bool isJumpEnable = true;
     // Use this for initialization
 	void Start () {
         Holes = GameObject.FindGameObjectsWithTag("Hole");
@@ -48,21 +49,24 @@ public class Character : MonoBehaviour {
                 //Activate elevators
                 ActivateElevator = true;
             }
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                //Character jump
-               // isJump = true;
+                if (isJumpEnable && Input.GetAxis("Jump") != 0.0f)
+                {
+                    isJumpEnable = false;
+                    transform.rigidbody.velocity = new Vector3(0, JumpForce, 0);
+                }
+                
             }
         }
 	}
-    void FixedUpdate() {
-        if (isJump)
-        {
-            transform.rigidbody.velocity = new Vector3(0, jumpForce, 0);
-        }
-        
-    }
+
     void OnCollisionEnter(Collision thecollision) {
+        //enable jump of the character
+        isJumpEnable = true;
+        
+        //Detect collision with water
         if (thecollision.gameObject.name == "Water")
         {
             isLive = false;
