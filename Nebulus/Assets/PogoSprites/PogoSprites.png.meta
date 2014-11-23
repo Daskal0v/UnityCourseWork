@@ -1,0 +1,267 @@
+fileFormatVersion: 2
+guid: 787dc1a2f6abe654486f8c9549507233
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: PogoSprites_0
+    21300002: PogoSprites_1
+    21300004: PogoSprites_2
+    21300006: PogoSprites_3
+    21300008: PogoSprites_4
+    21300010: PogoSprites_5
+    21300012: PogoSprites_6
+    21300014: PogoSprites_7
+    21300016: PogoSprites_8
+    21300018: PogoSprites_9
+    21300020: PogoSprites_10
+    21300022: PogoSprites_11
+    21300024: PogoSprites_12
+    21300026: PogoSprites_13
+    21300028: PogoSprites_14
+    21300030: PogoSprites_15
+    21300032: PogoSprites_16
+    21300034: PogoSprites_17
+    21300036: PogoSprites_18
+    21300038: PogoSprites_19
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: PogoSprites_0
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 477
+        width: 43
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PogoSprites_1
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 477
+        width: 42
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PogoSprites_2
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 336
+        width: 63
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PogoSprites_3
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 336
+        width: 64
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PogoSprites_4
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 336
+        width: 64
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PogoSprites_5
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 336
+        width: 61
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PogoSprites_6
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 337
+        width: 65
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PogoSprites_7
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 336
+        width: 60
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PogoSprites_8
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 192
+        width: 60
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PogoSprites_9
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 192
+        width: 61
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PogoSprites_10
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 192
+        width: 70
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PogoSprites_11
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 193
+        width: 63
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PogoSprites_12
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 192
+        width: 61
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PogoSprites_13
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 192
+        width: 60
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PogoSprites_14
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 43
+        width: 61
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PogoSprites_15
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 45
+        width: 60
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PogoSprites_16
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 45
+        width: 55
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PogoSprites_17
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 44
+        width: 46
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PogoSprites_18
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 49
+        width: 79
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PogoSprites_19
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 47
+        width: 80
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
