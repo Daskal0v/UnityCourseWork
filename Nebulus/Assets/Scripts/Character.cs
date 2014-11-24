@@ -24,8 +24,8 @@ public class Character : MonoBehaviour {
         
         //Check character live;
         if (!isLive) {
-            transform.GetChild(0).active = false;
-            transform.GetChild(1).active = true;
+            //transform.GetChild(0).active = false;
+            //transform.GetChild(1).active = true;
         }
         else
         {
