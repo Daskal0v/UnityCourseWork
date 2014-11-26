@@ -7,20 +7,22 @@ public class Character : MonoBehaviour {
     public float JumpForce = 100;
     public float MoveSpeed = 1f;
 
-    GameObject[] Holes;
     float totalRotate = 0;
-    Vector3 posit , scale;
-    bool ActivateElevator = false;
-    bool ActiveHole = true;
+    bool ElevatorUp = false;
+    bool ActivateDoor = false;
     bool isLive = true;
     bool isJumpEnable = true;
+    bool isWin = false;
+    
     // Use this for initialization
 	void Start () {
-        Holes = GameObject.FindGameObjectsWithTag("Hole");
+        
+        
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
         
         //Check character live;
         if (!isLive) {
@@ -33,6 +35,7 @@ public class Character : MonoBehaviour {
             if (Input.GetKey(KeyCode.LeftArrow)) 
             {
                 //Left move of character
+                
                 Decore.Rotate(0, Time.deltaTime*-10, 0);
                 transform.eulerAngles = new Vector2(0, 0);
                 
@@ -46,8 +49,12 @@ public class Character : MonoBehaviour {
             }
             if (Input.GetKey(KeyCode.DownArrow))
             {
-                //Activate elevators
-                ActivateElevator = true;
+                ElevatorUp = false;
+            }
+            if (Input.GetKey(KeyCode.UpArrow))
+            {
+                ElevatorUp = true;
+                ActivateDoor = true;
             }
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -77,52 +84,57 @@ public class Character : MonoBehaviour {
         //Set Elevators new property
         if (thecollision.gameObject.name == "Upward")
         {
-            if (ActivateElevator)
+            if (ElevatorUp)
             {
                 if (thecollision.gameObject.transform.localScale.y < 2) { 
                     thecollision.gameObject.transform.position += transform.up * Time.deltaTime * 0.5f;
                     thecollision.gameObject.transform.localScale += transform.up * Time.deltaTime * 0.9f;
                 }
             }
-        }
-    }
-    void OnCollisionExit(Collision thecollision)
-    {
-        //Deactivate permition of elevators
-        if (thecollision.gameObject.name == "Upward")
-        {
-            ActivateElevator = false;
-            UnityEditor.PrefabUtility.ResetToPrefabState(thecollision.gameObject);
+            else
+            {
+                if (thecollision.gameObject.transform.localScale.y > 0.1f)
+                {
+                    thecollision.gameObject.transform.position -= transform.up * Time.deltaTime * 0.5f;
+                    thecollision.gameObject.transform.localScale -= transform.up * Time.deltaTime * 0.9f;
+                }
+            }
         }
     }
     void OnTriggerEnter(Collider colide) {
         if (colide.gameObject.name == "Enemy")
         {
-            transform.FindChild("FrogRight").active = false;
-            transform.FindChild("FrogDied").active = true;
+            //transform.FindChild("FrogRight").active = false;
+            //transform.FindChild("FrogDied").active = true;
             isLive = false;
         }
 
-        if (colide.gameObject.name == "Hole")
+        if (colide.gameObject.name == "CastleDoor")
         {
-            if (ActiveHole)
+            if (colide.gameObject.tag != "Door")
             {
-                //Deactivate Holes
-                ActiveHole = false;
-                Decore.Rotate(0,Mathf.Clamp(Time.time,Decore.position.x,180), 0);
+                //Debug.Log("Not door");
+                if (ActivateDoor)
+                {
+                    //Debug.Log("ActiveDoor");
+                    Decore.Rotate(Vector3.up, 180);
+                    ActivateDoor = false;
+                }
             }
+            else {
+                transform.position = new Vector3(transform.position.x,21.2f, -4.3f);
+                isWin = true;
+            }
+            
         }
-        if (colide.gameObject.name == "Exit")
-        {
-            //YOU WINN
-
-        }
+        
     }
-    void OnTriggerExit(Collider colide)
-    {
-        if (colide.gameObject.name == "Hole")
+    void OnGUI(){
+        //Win message 
+        if (isWin)
         {
-            ActiveHole = true;
+            GUI.Box(new Rect(Screen.width / 2 -25, Screen.height / 2 - 10, 25, 10), "You Win");
+            
         }
     }
 }
