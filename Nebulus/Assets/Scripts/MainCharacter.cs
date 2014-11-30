@@ -3,11 +3,11 @@ using System.Collections;
 
 public class MainCharacter : MonoBehaviour {
     //position on the circle in rad
-    public float mPosition = 0F;
+    public float mPosition;
     //rotation radius
-    public float mRadius = 6.5F;
+    public float mRadius;
     public Vector3 center = new Vector3 (0, 0, 0);
-    public float usabilityDistance = 3;
+    public float usabilityDistance;
 
     private Vector3 m_InitialPosition;
     bool isJumpReady;
@@ -36,12 +36,6 @@ public class MainCharacter : MonoBehaviour {
             transform.position = m_InitialPosition + pos * mRadius;
             transform.LookAt(new Vector3(0, transform.position.y, 0));
             //Debug.Log(string.Format("Horizontal movement: {0}", hor.ToString()));
-        }
-
-        float distanceFromCenter = Vector3.Distance(transform.position, m_InitialPosition);
-        if (distanceFromCenter != 6.5)
-        {
-
         }
 
         //Jump logic
