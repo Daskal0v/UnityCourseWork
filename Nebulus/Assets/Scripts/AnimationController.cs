@@ -13,7 +13,6 @@ public class AnimationController : MonoBehaviour {
         stateHashes[2] = Animator.StringToHash("WalkRight");
         stateHashes[3] = Animator.StringToHash("Door");
         stateHashes[4] = Animator.StringToHash("Fall");
-      
         controller = gameObject.GetComponent<Animator>();
 	}
 	
@@ -45,13 +44,18 @@ public class AnimationController : MonoBehaviour {
             controller.SetBool(stateHashes[2], false);
         }
 
-        // Jump
+        // Jump 
         else if (Input.GetKeyDown(KeyCode.Space))
         {
-            controller.SetBool(stateHashes[1], true);
+            if ((controller.GetBool(stateHashes[0]) == true) || (controller.GetBool(stateHashes[2]) == true))
+            {
+                controller.SetBool(stateHashes[0], false);
+                controller.SetBool(stateHashes[2], false);
+                controller.SetBool(stateHashes[1], true);
+            }
         }
 
-        // Stop jumping
+        // Stop jumping 
         else if (Input.GetKeyUp(KeyCode.Space))
         {
             controller.SetBool(stateHashes[1], false);
