@@ -4,6 +4,7 @@ using System.Collections;
 public class Character : MonoBehaviour {
     
     public Transform Decore;
+    
     public float JumpForce = 100;
     public float MoveSpeed = 1f;
 
