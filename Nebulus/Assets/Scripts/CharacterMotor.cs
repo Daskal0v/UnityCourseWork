@@ -4,7 +4,7 @@ using System.Collections;
 public class CharacterMotor : MonoBehaviour {
 
     public Animator controller;
-    public Camera camera;
+    //public Camera camera;
     public Transform parent;
     public int rotationSpeed = 10;
     int[] stateHashes = new int[5];
@@ -33,7 +33,7 @@ public class CharacterMotor : MonoBehaviour {
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             controller.SetBool(stateHashes[0], true);
-            camera.transform.RotateAround(Vector3.zero, Vector3.up, rotationSpeed * Time.deltaTime);
+            //camera.transform.RotateAround(Vector3.zero, Vector3.up, rotationSpeed * Time.deltaTime);
             parent.transform.RotateAround(Vector3.zero, Vector3.up, rotationSpeed * Time.deltaTime);
         }
 
@@ -47,7 +47,7 @@ public class CharacterMotor : MonoBehaviour {
         else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             controller.SetBool(stateHashes[2], true);
-            camera.transform.RotateAround(Vector3.zero, Vector3.up, rotationSpeed * Time.deltaTime * -1 );
+            //camera.transform.RotateAround(Vector3.zero, Vector3.up, rotationSpeed * Time.deltaTime * -1 );
             parent.transform.RotateAround(Vector3.zero, Vector3.up, rotationSpeed * Time.deltaTime * -1);
         }
 

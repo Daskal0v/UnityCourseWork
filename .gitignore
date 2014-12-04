@@ -1,0 +1,4 @@
+*.csproj
+Nebulus/Assembly-CSharp-vs.csproj
+Nebulus/Assembly-CSharp.csproj
+Nebulus/Nebulus-csharp.sln
