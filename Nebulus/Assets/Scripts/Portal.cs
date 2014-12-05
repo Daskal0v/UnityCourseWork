@@ -19,7 +19,7 @@ public class Portal : MonoBehaviour
     public void Activate()
     {
         Debug.Log("Transport!!!");
-        GameObject player = GameObject.Find("Player");
+        GameObject player = GameObject.Find("Character");
         player.gameObject.BroadcastMessage("Transport", exitPortal.transform.position);
     }
 }

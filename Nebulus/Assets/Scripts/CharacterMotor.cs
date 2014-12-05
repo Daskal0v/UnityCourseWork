@@ -6,6 +6,7 @@ public class CharacterMotor : MonoBehaviour {
     public Animator controller;
     public Transform parent;
     public int rotationSpeed = 10;
+    public float portalReach;
     int[] stateHashes = new int[5];
     bool isJumpEnable = true;
     bool isElevateEnable = false;
@@ -83,8 +84,27 @@ public class CharacterMotor : MonoBehaviour {
         // In the door
         else if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
+            //TODO: Future bug where pogo will not enter a door if standing on an elevator.
             if (!isElevateEnable)
             {
+                GameObject[] allPortals = GameObject.FindGameObjectsWithTag("Portal");
+                float distance = float.MaxValue;
+                GameObject closestPortal = null;
+                foreach (var portal in allPortals)
+                {
+                    float dist = Vector3.Distance(portal.transform.position, parent.transform.position);
+                    Debug.Log(string.Format("Distance between player and {0} is {1}", portal.name, dist));
+                    if (dist < portalReach && dist < distance)
+                    {
+                        closestPortal = portal;
+                        distance = dist;
+                    }
+                }
+                if (closestPortal != null)
+                {
+                    Debug.Log("OK");
+                    closestPortal.BroadcastMessage("Activate");
+                }
                 controller.SetBool(stateHashes[3], true);
             }
             else
@@ -93,6 +113,8 @@ public class CharacterMotor : MonoBehaviour {
             }
             
         }
+
+
 
         // Out of the door
         else if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
@@ -116,6 +138,13 @@ public class CharacterMotor : MonoBehaviour {
             parent.BroadcastMessage("ElvateDown");
         }
     }
+
+    void Transport(Vector3 newPosition)
+    {
+        parent.transform.position = newPosition;
+        parent.transform.LookAt(new Vector3(0, transform.position.y, 0));
+    }
+
     void EnableJump()
     {
         isJumpEnable = true;
