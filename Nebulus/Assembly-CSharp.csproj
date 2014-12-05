@@ -55,6 +55,7 @@
      <Compile Include="Assets\Scripts\InitiateLevel.cs" />
      <Compile Include="Assets\Scripts\MainCamera.cs" />
      <Compile Include="Assets\Scripts\MainCharacter.cs" />
+     <Compile Include="Assets\Scripts\MovementScript.cs" />
      <Compile Include="Assets\Scripts\Portal.cs" />
      <Compile Include="Assets\Scripts\SkyBoxCamera.cs" />
   </ItemGroup>

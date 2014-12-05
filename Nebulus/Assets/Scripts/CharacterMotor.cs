@@ -4,11 +4,11 @@ using System.Collections;
 public class CharacterMotor : MonoBehaviour {
 
     public Animator controller;
-    //public Camera camera;
     public Transform parent;
     public int rotationSpeed = 10;
     int[] stateHashes = new int[5];
-   
+    bool isJumpEnable = true;
+    bool isElevateEnable = false;
 
     // Initialization
     void Start()
@@ -33,7 +33,6 @@ public class CharacterMotor : MonoBehaviour {
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             controller.SetBool(stateHashes[0], true);
-            //camera.transform.RotateAround(Vector3.zero, Vector3.up, rotationSpeed * Time.deltaTime);
             parent.transform.RotateAround(Vector3.zero, Vector3.up, rotationSpeed * Time.deltaTime);
         }
 
@@ -47,7 +46,6 @@ public class CharacterMotor : MonoBehaviour {
         else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             controller.SetBool(stateHashes[2], true);
-            //camera.transform.RotateAround(Vector3.zero, Vector3.up, rotationSpeed * Time.deltaTime * -1 );
             parent.transform.RotateAround(Vector3.zero, Vector3.up, rotationSpeed * Time.deltaTime * -1);
         }
 
@@ -60,11 +58,19 @@ public class CharacterMotor : MonoBehaviour {
         // Jump 
         else if (Input.GetKeyDown(KeyCode.Space))
         {
+         
             if ((controller.GetBool(stateHashes[0]) == true) || (controller.GetBool(stateHashes[2]) == true))
             {
                 controller.SetBool(stateHashes[0], false);
                 controller.SetBool(stateHashes[2], false);
                 controller.SetBool(stateHashes[1], true);
+            }
+            float jump = Input.GetAxis("Jump");
+            if (jump != 0.0f && isJumpEnable)
+            {
+                isJumpEnable = false;
+                var pos = new Vector3(0, 5, 0);
+                parent.rigidbody.velocity = pos;
             }
         }
 
@@ -77,7 +83,15 @@ public class CharacterMotor : MonoBehaviour {
         // In the door
         else if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
-            controller.SetBool(stateHashes[3], true);
+            if (!isElevateEnable)
+            {
+                controller.SetBool(stateHashes[3], true);
+            }
+            else
+            {
+                parent.BroadcastMessage("ElevatorUp");
+            }
+            
         }
 
         // Out of the door
@@ -97,5 +111,22 @@ public class CharacterMotor : MonoBehaviour {
         {
             controller.SetBool(stateHashes[4], false);
         }
+        else if (Input.GetKey(KeyCode.DownArrow))
+        {
+            parent.BroadcastMessage("ElvateDown");
+        }
+    }
+    void EnableJump()
+    {
+        isJumpEnable = true;
+
+    }
+    void ElevateEnable()
+    {
+        isElevateEnable = true;
+    }
+    void ElevateDisable()
+    {
+        isElevateEnable = false;
     }
 }
