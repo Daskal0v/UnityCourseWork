@@ -9,3 +9,15 @@ C:\Users\Daskalov\Desktop\Unity Lessons\Nebulus\Temp\bin\Debug\ICSharpCode.NRefa
 C:\Users\Daskalov\Desktop\Unity Lessons\Nebulus\obj\Debug\Assembly-CSharp-vs.csprojResolveAssemblyReference.cache
 C:\Users\Daskalov\Desktop\Unity Lessons\Nebulus\obj\Debug\Assembly-CSharp.dll
 C:\Users\Daskalov\Desktop\Unity Lessons\Nebulus\obj\Debug\Assembly-CSharp.pdb
+D:\Work\TeamNebulus\trunk\Nebulus\obj\Debug\Assembly-CSharp-vs.csprojResolveAssemblyReference.cache
+D:\Work\TeamNebulus\trunk\Nebulus\obj\Debug\Assembly-CSharp.dll
+D:\Work\TeamNebulus\trunk\Nebulus\Temp\bin\Debug\Assembly-CSharp.dll
+D:\Work\TeamNebulus\trunk\Nebulus\Temp\bin\Debug\Assembly-CSharp.pdb
+D:\Work\TeamNebulus\trunk\Nebulus\Temp\bin\Debug\UnityEditor.dll
+D:\Work\TeamNebulus\trunk\Nebulus\Temp\bin\Debug\UnityEngine.dll
+D:\Work\TeamNebulus\trunk\Nebulus\Temp\bin\Debug\UnityEngine.UI.dll
+D:\Work\TeamNebulus\trunk\Nebulus\Temp\bin\Debug\Mono.Cecil.dll
+D:\Work\TeamNebulus\trunk\Nebulus\Temp\bin\Debug\nunit.framework.dll
+D:\Work\TeamNebulus\trunk\Nebulus\Temp\bin\Debug\Unity.DataContract.dll
+D:\Work\TeamNebulus\trunk\Nebulus\Temp\bin\Debug\ICSharpCode.NRefactory.dll
+D:\Work\TeamNebulus\trunk\Nebulus\obj\Debug\Assembly-CSharp.pdb
