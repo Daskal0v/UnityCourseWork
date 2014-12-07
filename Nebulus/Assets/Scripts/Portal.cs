@@ -18,10 +18,9 @@ public class Portal : MonoBehaviour
 
     public void Activate()
     {
-        Debug.Log("Transport!!!");
+        //Debug.Log("Transport!!!");
         GameObject player = GameObject.Find("Character");
-        //Vector3 exitLocation = Vector3.Project(Vector3.zero, exitPortal.transform.position);
-        //Math says this should be 1.083333f but pogo spawns way too close in that case
+        //We need to change this value if Pogo spawns to neer or far from a portal.
         float towerRadiusToPathRadius = 1.15f;
         Vector3 exitLocation = new Vector3(towerRadiusToPathRadius * exitPortal.transform.position.x, 1f * exitPortal.transform.position.y, towerRadiusToPathRadius * exitPortal.transform.position.z);
         player.gameObject.BroadcastMessage("Transport", exitLocation);
