@@ -4,13 +4,14 @@ using System.Collections;
 public class Elevator : MonoBehaviour {
 
     public float elevateToHeight;
-    private float playerPosition;
     public bool returnToInitialPosition;
-    public bool isInitiallyElevated;
+    public float secondsToReturnInInitialPosition;
+
     GameObject player;
     private bool activateUp = false;
     private bool activateDown = false;
     private float elevatorInitialPosition;
+    private float timer = 0.0f;
 
     void Start ()
     {
@@ -33,7 +34,8 @@ public class Elevator : MonoBehaviour {
             if (transform.position.y == elevateToHeight)
             {
                 activateUp = false;
-                playerPosition = 0;
+                player.transform.parent = null;
+                //this.transform.DetachChildren();
             }
         }
 
@@ -46,9 +48,24 @@ public class Elevator : MonoBehaviour {
             if (transform.position.y == elevatorInitialPosition)
             {
                 activateDown = false;
-                playerPosition = 0;
+                //this.transform.DetachChildren();
             }
         }
+        if ((this.transform.position.y >= (elevateToHeight - 0.6f)) && returnToInitialPosition)
+        {
+            timer += Time.deltaTime;
+
+            Debug.Log(timer.ToString());
+            if (timer >= secondsToReturnInInitialPosition)
+            {
+                this.transform.DetachChildren();
+                this.transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, elevatorInitialPosition, transform.position.z), 20);
+                timer = 0.0f;
+                activateUp = false;
+                activateDown = false;
+            }
+        }
+        
 	}
 
     void OnCollisionEnter(Collision collision)
@@ -66,7 +83,7 @@ public class Elevator : MonoBehaviour {
     {
         Debug.Log("OnCollisionExit");
         //this does not work, don't know why
-        player.transform.parent = null;
+        
         player.gameObject.BroadcastMessage("ExitElevator");
     }
 
@@ -75,6 +92,7 @@ public class Elevator : MonoBehaviour {
         Debug.Log("ElevateUP!!!");
 
         activateUp = true;
+        activateDown = false;
     }
 
     public void ActivateDown()
