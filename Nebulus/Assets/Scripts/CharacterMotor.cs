@@ -118,13 +118,13 @@ public class CharacterMotor : MonoBehaviour
                     closestPortal.BroadcastMessage("Activate");
                 }
             }
-
             if (readyToElevate)
             {
+                Debug.Log("ActivateUP" + readyToElevate);
                 if (currentElevator != null)
                 {
-                    Debug.Log("Activate");
-                    currentElevator.gameObject.BroadcastMessage("Activate");
+                    Debug.Log("ActivateUP");
+                    currentElevator.gameObject.BroadcastMessage("ActivateUP");
                 }
             }
         }
@@ -149,9 +149,18 @@ public class CharacterMotor : MonoBehaviour
             //controller.SetBool(stateHashes[4], false);
             controller.SetBool("Fall", false);
         }
-        else if (Input.GetKey(KeyCode.DownArrow))
+
+        else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
-            parent.BroadcastMessage("ElvateDown");
+            Debug.Log("Test");
+            if (readyToElevate)
+            {
+                if (currentElevator != null)
+                {
+                    Debug.Log("ActivateDown");
+                    currentElevator.gameObject.BroadcastMessage("ActivateDown");
+                }
+            }
         }
     }
 
@@ -170,7 +179,14 @@ public class CharacterMotor : MonoBehaviour
     {
         Debug.Log("ReadyToElevate");
         readyToElevate = true;
+        Debug.Log(readyToElevate);
         currentElevator = elevator;
+    }
+
+    void ExitElevator()
+    {
+        Debug.Log("ExitElevator");
+        readyToElevate = false;
     }
 
     void EnableJump()

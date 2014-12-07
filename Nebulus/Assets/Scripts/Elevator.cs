@@ -4,30 +4,52 @@ using System.Collections;
 public class Elevator : MonoBehaviour {
 
     public float elevateToHeight;
-    float playerPosition;
+    private float playerPosition;
     public bool returnToInitialPosition;
     public bool isInitiallyElevated;
-    private float timer = 0.0f;
     GameObject player;
-    public float timeToElevate;
+    private bool activateUp = false;
+    private bool activateDown = false;
+    private float elevatorInitialPosition;
 
-    void Awake ()
+    void Start ()
     {
         player = GameObject.Find("Character");
+        elevatorInitialPosition = this.transform.position.y;
+        Debug.Log(elevatorInitialPosition.ToString());
+        Debug.Log(player.ToString());
     }
 
-	// Use this for initialization
-	void Start () 
-    {
-        //transform.LookAt(new Vector3(0, transform.position.y, 0));
-	}
-	
 	// Update is called once per frame
 	void Update () 
     {
+        
+        if (activateUp)
+        {
+            this.transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, elevateToHeight, transform.position.z), 2*Time.deltaTime);
+            player.transform.position = Vector3.Lerp(player.transform.position, new Vector3(player.transform.position.x, elevateToHeight + 0.9f, player.transform.position.z), 2 * Time.deltaTime);
+
+            if (transform.position.y == elevateToHeight)
+            {
+                activateUp = false;
+                playerPosition = 0;
+            }
+        }
+
+        else if (activateDown)
+        {
+            this.transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, elevatorInitialPosition, transform.position.z), 2 * Time.deltaTime);
+            player.transform.position = Vector3.Lerp(player.transform.position, new Vector3(player.transform.position.x, elevatorInitialPosition + 0.9f, player.transform.position.z), 2 * Time.deltaTime);
+
+            if (transform.position.y == elevatorInitialPosition)
+            {
+                activateDown = false;
+                playerPosition = 0;
+            }
+        }
 	}
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionStay(Collision collision)
     {
         Debug.Log("OnCollisionEnter");
         
@@ -37,16 +59,25 @@ public class Elevator : MonoBehaviour {
         }
     }
 
-    public void Activate()
+    void OnCollisionExit(Collision collision)
     {
-        
-        Debug.Log("Elevate!!!");
-        playerPosition = (player.transform.position.y - this.transform.position.y);
-        while (timer < timeToElevate)
-        {
-            transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, elevateToHeight, transform.position.z), timer);
-            player.transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, elevateToHeight + playerPosition, transform.position.z), timer);
-            timer += Time.deltaTime;
-        }
+        Debug.Log("OnCollisionExit");
+
+        player.gameObject.BroadcastMessage("ExitElevator");
+    }
+
+    public void ActivateUP()
+    {
+        Debug.Log("ElevateUP!!!");
+
+        activateUp = true;
+    }
+
+    public void ActivateDown()
+    {
+        Debug.Log("ElevateDown!!!");
+
+        activateDown = true;
+        activateUp = false;
     }
 }
