@@ -72,12 +72,12 @@ public class CharacterMotor : MonoBehaviour {
                 //controller.SetBool(stateHashes[1], true);
                 controller.SetBool("WalkLeft", false);
                 controller.SetBool("WalkRight", false);
-                controller.SetBool("Jump", true);
             }
             float jump = Input.GetAxis("Jump");
             if (jump != 0.0f && isJumpEnable)
             {
                 isJumpEnable = false;
+                controller.SetBool("Jump", true);
                 var pos = new Vector3(0, 5, 0);
                 parent.rigidbody.velocity = pos;
             }
@@ -87,7 +87,7 @@ public class CharacterMotor : MonoBehaviour {
         else if (Input.GetKeyUp(KeyCode.Space))
         {
             //controller.SetBool(stateHashes[1], false);
-            controller.SetBool("Jump", false);
+            //controller.SetBool("Jump", false);
         }
 
         // In the door
@@ -102,7 +102,7 @@ public class CharacterMotor : MonoBehaviour {
                 foreach (var portal in allPortals)
                 {
                     float dist = Vector3.Distance(portal.transform.position, parent.transform.position);
-                    Debug.Log(string.Format("Distance between player and {0} is {1}", portal.name, dist));
+                    //Debug.Log(string.Format("Distance between player and {0} is {1}", portal.name, dist));
                     if (dist < portalReach && dist < distance)
                     {
                         closestPortal = portal;
@@ -161,7 +161,9 @@ public class CharacterMotor : MonoBehaviour {
 
     void EnableJump()
     {
+        Debug.Log("Jump enabled!");
         isJumpEnable = true;
+        controller.SetBool("Jump", false);
     }
     void ElevateEnable()
     {

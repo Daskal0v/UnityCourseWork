@@ -8,14 +8,12 @@ public class MovementScript : MonoBehaviour
 	// Update is called once per frame
     void OnCollisionEnter(Collision theCollision)
     {
-            if (theCollision.contacts[0].normal.y > 0)
-            {
-                transform.BroadcastMessage("EnableJump");
-            }
-        
-        
-        
+        if (theCollision.contacts[0].normal.y > 0)
+        {
+            transform.BroadcastMessage("EnableJump");
+        }
     }
+
     void OnCollisionStay(Collision theCollision)
     {
         if (theCollision.gameObject.name == "Upward")
