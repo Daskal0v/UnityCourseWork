@@ -1,0 +1,623 @@
+fileFormatVersion: 2
+guid: 82ad133a60395a94b907c80e72f648e8
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: monster-lizard_0
+    21300002: monster-lizard_1
+    21300004: monster-lizard_2
+    21300006: monster-lizard_3
+    21300008: monster-lizard_4
+    21300010: monster-lizard_5
+    21300012: monster-lizard_6
+    21300014: monster-lizard_7
+    21300016: monster-lizard_8
+    21300018: monster-lizard_9
+    21300020: monster-lizard_10
+    21300022: monster-lizard_11
+    21300024: monster-lizard_12
+    21300026: monster-lizard_13
+    21300028: monster-lizard_14
+    21300030: monster-lizard_15
+    21300032: monster-lizard_16
+    21300034: monster-lizard_17
+    21300036: monster-lizard_18
+    21300038: monster-lizard_19
+    21300040: monster-lizard_20
+    21300042: monster-lizard_21
+    21300044: monster-lizard_22
+    21300046: monster-lizard_23
+    21300048: monster-lizard_24
+    21300050: monster-lizard_25
+    21300052: monster-lizard_26
+    21300054: monster-lizard_27
+    21300056: monster-lizard_28
+    21300058: monster-lizard_29
+    21300060: monster-lizard_30
+    21300062: monster-lizard_31
+    21300064: monster-lizard_32
+    21300066: monster-lizard_33
+    21300068: monster-lizard_34
+    21300070: monster-lizard_35
+    21300072: monster-lizard_36
+    21300074: monster-lizard_37
+    21300076: monster-lizard_38
+    21300078: monster-lizard_39
+    21300080: monster-lizard_40
+    21300082: monster-lizard_41
+    21300084: monster-lizard_42
+    21300086: monster-lizard_43
+    21300088: monster-lizard_44
+    21300090: monster-lizard_45
+    21300092: monster-lizard_46
+    21300094: monster-lizard_47
+    21300096: Lizard_0
+    21300098: Lizard_1
+    21300100: Lizard_2
+    21300102: Lizard_3
+    21300104: Lizard_4
+    21300106: Lizard_5
+    21300108: Lizard_6
+    21300110: Lizard_7
+    21300112: Lizard_8
+    21300114: Lizard_9
+    21300116: Lizard_10
+    21300118: Lizard_11
+    21300120: Lizard_12
+    21300122: Lizard_13
+    21300124: Lizard_14
+    21300126: Lizard_15
+    21300128: Lizard_16
+    21300130: Lizard_17
+    21300132: Lizard_18
+    21300134: Lizard_19
+    21300136: Lizard_20
+    21300138: Lizard_21
+    21300140: Lizard_22
+    21300142: Lizard_23
+    21300144: Lizard_24
+    21300146: Lizard_25
+    21300148: Lizard_26
+    21300150: Lizard_27
+    21300152: Lizard_28
+    21300154: Lizard_29
+    21300156: Lizard_30
+    21300158: Lizard_31
+    21300160: Lizard_32
+    21300162: Lizard_33
+    21300164: Lizard_34
+    21300166: Lizard_35
+    21300168: Lizard_36
+    21300170: Lizard_37
+    21300172: Lizard_38
+    21300174: Lizard_39
+    21300176: Lizard_40
+    21300178: Lizard_41
+    21300180: Lizard_42
+    21300182: Lizard_43
+    21300184: Lizard_44
+    21300186: Lizard_45
+    21300188: Lizard_46
+    21300190: Lizard_47
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Lizard_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 397
+        width: 56
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lizard_1
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 397
+        width: 56
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lizard_2
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 396
+        width: 57
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lizard_3
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 397
+        width: 58
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lizard_4
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 396
+        width: 57
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lizard_5
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 397
+        width: 58
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lizard_6
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 340
+        width: 57
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lizard_7
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 340
+        width: 58
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lizard_8
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 340
+        width: 60
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lizard_9
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 340
+        width: 55
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lizard_10
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 340
+        width: 58
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lizard_11
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 339
+        width: 44
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lizard_12
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 284
+        width: 56
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lizard_13
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 285
+        width: 55
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lizard_14
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 283
+        width: 57
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lizard_15
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 285
+        width: 57
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lizard_16
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 283
+        width: 57
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lizard_17
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 284
+        width: 58
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lizard_18
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 228
+        width: 58
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lizard_19
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 228
+        width: 58
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lizard_20
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 228
+        width: 60
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lizard_21
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 228
+        width: 57
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lizard_22
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 228
+        width: 58
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lizard_23
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 230
+        width: 48
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lizard_24
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 171
+        width: 22
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lizard_25
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 171
+        width: 22
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lizard_26
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 171
+        width: 22
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lizard_27
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 171
+        width: 23
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lizard_28
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 171
+        width: 22
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lizard_29
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 170
+        width: 22
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lizard_30
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 115
+        width: 22
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lizard_31
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 115
+        width: 22
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lizard_32
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 115
+        width: 23
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lizard_33
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 115
+        width: 22
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lizard_34
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 115
+        width: 22
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lizard_35
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 119
+        width: 48
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lizard_36
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 60
+        width: 22
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lizard_37
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 60
+        width: 22
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lizard_38
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 58
+        width: 22
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lizard_39
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 57
+        width: 22
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lizard_40
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 57
+        width: 22
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lizard_41
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 59
+        width: 22
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lizard_42
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 3
+        width: 22
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lizard_43
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 3
+        width: 22
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lizard_44
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 3
+        width: 22
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lizard_45
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 3
+        width: 22
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lizard_46
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 3
+        width: 22
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Lizard_47
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 6
+        width: 50
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
