@@ -26,8 +26,9 @@ public class Elevator : MonoBehaviour {
         
         if (activateUp)
         {
-            this.transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, elevateToHeight, transform.position.z), 2*Time.deltaTime);
-            player.transform.position = Vector3.Lerp(player.transform.position, new Vector3(player.transform.position.x, elevateToHeight + 0.9f, player.transform.position.z), 2 * Time.deltaTime);
+            player.transform.parent = transform;
+            this.transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, elevateToHeight, transform.position.z), 3*Time.deltaTime);
+            //player.transform.position = Vector3.Lerp(player.transform.position, new Vector3(player.transform.position.x, elevateToHeight + 0.9f, player.transform.position.z), 2 * Time.deltaTime);
 
             if (transform.position.y == elevateToHeight)
             {
@@ -38,8 +39,9 @@ public class Elevator : MonoBehaviour {
 
         else if (activateDown)
         {
+            player.transform.parent = transform;
             this.transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, elevatorInitialPosition, transform.position.z), 2 * Time.deltaTime);
-            player.transform.position = Vector3.Lerp(player.transform.position, new Vector3(player.transform.position.x, elevatorInitialPosition + 0.9f, player.transform.position.z), 2 * Time.deltaTime);
+            //player.transform.position = Vector3.Lerp(player.transform.position, new Vector3(player.transform.position.x, elevatorInitialPosition + 0.9f, player.transform.position.z), 2 * Time.deltaTime);
 
             if (transform.position.y == elevatorInitialPosition)
             {
@@ -49,20 +51,22 @@ public class Elevator : MonoBehaviour {
         }
 	}
 
-    void OnCollisionStay(Collision collision)
+    void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("OnCollisionEnter");
+            Debug.Log("OnCollisionEnter");
+
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                player.gameObject.BroadcastMessage("ReadyToElevate", this.gameObject);
+            }
         
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            player.gameObject.BroadcastMessage("ReadyToElevate",this.gameObject);
-        }
     }
 
     void OnCollisionExit(Collision collision)
     {
         Debug.Log("OnCollisionExit");
-
+        //this does not work, don't know why
+        player.transform.parent = null;
         player.gameObject.BroadcastMessage("ExitElevator");
     }
 
