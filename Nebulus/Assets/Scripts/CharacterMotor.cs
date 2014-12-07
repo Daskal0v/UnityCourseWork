@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CharacterMotor : MonoBehaviour {
+public class CharacterMotor : MonoBehaviour
+{
 
     public Animator controller;
     public Transform parent;
@@ -10,7 +11,8 @@ public class CharacterMotor : MonoBehaviour {
     int[] stateHashes = new int[6];
     bool isJumpEnable = true;
     bool isElevateEnable = false;
-
+    bool readyToElevate = false;
+    GameObject currentElevator;
     // Initialization
     void Start()
     {
@@ -28,8 +30,8 @@ public class CharacterMotor : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        
-        
+
+
 
         // Walk left
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
@@ -116,9 +118,14 @@ public class CharacterMotor : MonoBehaviour {
                     closestPortal.BroadcastMessage("Activate");
                 }
             }
-            else
+
+            if (readyToElevate)
             {
-                parent.BroadcastMessage("ElevatorUp");
+                if (currentElevator != null)
+                {
+                    Debug.Log("Activate");
+                    currentElevator.gameObject.BroadcastMessage("Activate");
+                }
             }
         }
 
@@ -157,6 +164,13 @@ public class CharacterMotor : MonoBehaviour {
         parent.transform.position = newPosition;
         //parent.TransformPoint(newPosition);
         parent.transform.LookAt(new Vector3(0, transform.position.y, 0));
+    }
+
+    void ReadyToElevate(GameObject elevator)
+    {
+        Debug.Log("ReadyToElevate");
+        readyToElevate = true;
+        currentElevator = elevator;
     }
 
     void EnableJump()
