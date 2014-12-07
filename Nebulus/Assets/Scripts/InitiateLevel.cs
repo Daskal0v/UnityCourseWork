@@ -14,8 +14,8 @@ public class InitiateLevel : MonoBehaviour
         for (int i = 0; i < numberOfPlatforms; i++)
         {
             var pos = new Vector3(0, 0, 0);
-            Debug.Log("Platform" + i);
-            Debug.Log(levelPlatforms[i].transform.position);
+            //Debug.Log("Platform" + i);
+            //Debug.Log(levelPlatforms[i].transform.position);
             float x = levelPlatforms[i].transform.position.x;
             pos.x = Mathf.Sin(((x - 10) * Mathf.PI * 2) / 36) * platformSpreadRadius;
             pos.y = levelPlatforms[i].transform.position.y;
@@ -23,7 +23,7 @@ public class InitiateLevel : MonoBehaviour
             levelPlatforms[i].transform.position = pos;
             levelPlatforms[i].transform.LookAt(new Vector3(0, pos.y, 0));
             levelPlatforms[i].transform.Rotate(new Vector3(0, 1, 0), 180);
-            Debug.Log(levelPlatforms[i].transform.position);
+            //Debug.Log(levelPlatforms[i].transform.position);
         }
 	}
 	
