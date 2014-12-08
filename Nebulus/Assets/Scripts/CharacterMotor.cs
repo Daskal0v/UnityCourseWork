@@ -14,8 +14,7 @@ public class CharacterMotor : MonoBehaviour
     bool isElevateEnable = false;
     bool readyToElevate = false;
     GameObject currentElevator;
-    GameObject diirectionOfShooting;
-    GameObject ball;
+
     // Initialization
     void Start()
     {
@@ -27,8 +26,7 @@ public class CharacterMotor : MonoBehaviour
         stateHashes[4] = Animator.StringToHash("Fall");
         stateHashes[5] = Animator.StringToHash("ExitDoor");
         controller = gameObject.GetComponent<Animator>();
-        diirectionOfShooting = GameObject.FindGameObjectWithTag("DirectionOfShooting");
-        ball = (GameObject)Resources.Load("Ball");
+        
     }
 
 
@@ -44,7 +42,6 @@ public class CharacterMotor : MonoBehaviour
             //controller.SetBool(stateHashes[0], true);
             controller.SetBool("WalkLeft", true);
             parent.transform.RotateAround(Vector3.zero, Vector3.up, rotationSpeed * Time.deltaTime);
-            diirectionOfShooting.transform.localPosition = new Vector3(-0.2f, 0, 0f);
         }
 
         // Stop walking left
@@ -60,7 +57,6 @@ public class CharacterMotor : MonoBehaviour
             //controller.SetBool(stateHashes[2], true);
             controller.SetBool("WalkRight", true);
             parent.transform.RotateAround(Vector3.zero, Vector3.up, rotationSpeed * Time.deltaTime * -1);
-            diirectionOfShooting.transform.localPosition = new Vector3(0.2f, 0, 0f);
         }
 
         // Stop walking right
@@ -172,15 +168,6 @@ public class CharacterMotor : MonoBehaviour
                     
                 }
             }
-        }
-        else if (Input.GetKeyDown(KeyCode.RightControl))
-        {
-            Instantiate(ball);
-            ball.transform.position = transform.position;
-        }
-        else
-        {
-            CancelInvoke("Ball");
         }
     }
 
