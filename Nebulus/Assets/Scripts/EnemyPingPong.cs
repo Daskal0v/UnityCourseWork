@@ -6,7 +6,7 @@ public class EnemyPingPong : MonoBehaviour {
     private Vector3 MovingDirection = Vector3.up;
     public float upperPosition;
     public float lowerPosition;
-    private float speed = 2;
+    public float speed;
 
 	// Use this for initialization
     void Start()
