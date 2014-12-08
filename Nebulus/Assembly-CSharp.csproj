@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\BouncyEnemy.cs" />
      <Compile Include="Assets\Scripts\Character.cs" />
      <Compile Include="Assets\Scripts\CharacterMotor.cs" />
+     <Compile Include="Assets\Scripts\DestroyablePlatform.cs" />
      <Compile Include="Assets\Scripts\Elevator.cs" />
      <Compile Include="Assets\Scripts\EnemyBoomerang.cs" />
      <Compile Include="Assets\Scripts\FireBall.cs" />

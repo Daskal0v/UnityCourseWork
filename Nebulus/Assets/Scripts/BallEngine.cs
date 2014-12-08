@@ -32,4 +32,14 @@ public class BallEngine : MonoBehaviour {
             Destroy(this.gameObject);
         }
 	}
+
+    //TODO:
+    //Destroy targets
+    //void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject.tag == "TargetDestroyable")
+    //    {
+    //        Destroy(collision.gameObject);
+    //    }
+    //}
 }
