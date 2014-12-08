@@ -8,6 +8,7 @@ public class CharacterMotor : MonoBehaviour
     public Transform parent;
     public int rotationSpeed = 10;
     public float portalReach;
+    public bool ElevateDownPermition = true;
     int[] stateHashes = new int[6];
     bool isJumpEnable = true;
     bool isElevateEnable = false;
@@ -152,13 +153,17 @@ public class CharacterMotor : MonoBehaviour
 
         else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
-            Debug.Log("Test");
+            //Debug.Log("Test");
             if (readyToElevate)
             {
                 if (currentElevator != null)
                 {
-                    Debug.Log("ActivateDown");
-                    currentElevator.gameObject.BroadcastMessage("ActivateDown");
+                    //Debug.Log("ActivateDown");
+                    if (ElevateDownPermition)
+                    {
+                        currentElevator.gameObject.BroadcastMessage("ActivateDown");
+                    }
+                    
                 }
             }
         }
