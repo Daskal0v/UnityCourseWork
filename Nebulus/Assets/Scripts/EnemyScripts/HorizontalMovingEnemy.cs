@@ -40,9 +40,6 @@ public class HorizontalMovingEnemy : MonoBehaviour {
     public float speed = 1f;
     public bool offsetIsCenter = true;
     public Vector3 offset;
-    private Vector3 firstPoint = new Vector3(4.65f, 10.09f, 3.38f);
-    private Vector3 secondPoint = new Vector3(0, 10.09f, 5.75f);
-
     float sign = 1;
 
     void Start()
@@ -55,26 +52,14 @@ public class HorizontalMovingEnemy : MonoBehaviour {
 
     void Update()
     {
-        float dist1 = Vector3.Distance(this.transform.position, firstPoint);
-        float dist2 = Vector3.Distance(this.transform.position, secondPoint);
-                    
-        //Debug.Log(string.Format("Distance between player and {0} is {1}", portal.name, dist));
-        if (dist1 <= 0.4)
-        {
-            sign = 1;
-        }
-        else if (dist2 <= 0.4)
-        {
-            sign = -1;
-        }
+        transform.RotateAround(Vector3.zero, Vector3.up, 10 * Time.deltaTime * sign);
+    
+    }
 
-        transform.position = new Vector3(
-                    (radius * Mathf.Cos(Time.time * sign * speed)) + offset.x,
-                    offset.y,
-                    (radius * Mathf.Sin(Time.time * sign * speed)) + offset.z);
-        
+    void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("OnCollisionEnter");
+        sign = -1;
 
-        //transform.Translate(direction * Time.deltaTime * 2, Space.World);
-            //this.transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, elevatorInitialPosition, transform.position.z), 2 * Time.deltaTime);      
     }
 }
