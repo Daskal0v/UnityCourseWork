@@ -11,10 +11,12 @@ public class EnemyBoomerang : MonoBehaviour {
     float countDown;
     bool boomerangIsActive;
     Vector3 initialPosition;
+    GameObject player;
 
 	// Use this for initialization
 	void Start () 
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         resetBoomerang();
         initialPosition = transform.localPosition;
         Debug.Log(initialPosition);
@@ -34,11 +36,11 @@ public class EnemyBoomerang : MonoBehaviour {
             Debug.Log(direction);
             if (direction == 0)
             {
-                transform.position = new Vector3(screenWidth, 0, 0);
+                transform.position = new Vector3(screenWidth, player.transform.position.y, player.transform.position.z);
             }
             else if(direction == 1)
             {
-                transform.position = new Vector3(-screenWidth, 0, 0);
+                transform.position = new Vector3(-screenWidth, player.transform.position.y, player.transform.position.z);
             }
             else
             {
