@@ -5,6 +5,7 @@ public class CharacterShooting : MonoBehaviour {
 
     GameObject diirectionOfShooting;
     GameObject ball;
+
 	// Use this for initialization
 	void Start () {
         diirectionOfShooting = GameObject.FindGameObjectWithTag("DirectionOfShooting");
@@ -21,17 +22,17 @@ public class CharacterShooting : MonoBehaviour {
         // Walk right
         else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
-            
             diirectionOfShooting.transform.localPosition = new Vector3(0.2f, 0, 0f);
         }
-        else if (Input.GetKeyDown(KeyCode.RightControl))
+        
+        if (Input.GetKeyDown(KeyCode.RightControl))
         {
-            Instantiate(ball);
-            ball.transform.position = transform.position;
+            Instantiate(ball, diirectionOfShooting.transform.position, diirectionOfShooting.transform.rotation);
         }
         else
         {
             CancelInvoke("Ball");
         }
     }
+   
 }

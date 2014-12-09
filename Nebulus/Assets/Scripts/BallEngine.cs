@@ -3,15 +3,12 @@ using System.Collections;
 
 public class BallEngine : MonoBehaviour {
 
-    float TimeOut = 1;
-    float Speed = 5;
-    int direction;
-    GameObject Player;
+    float TimeOut = 1f;
+    float speed = 20f;
     public GameObject diirectionOfShooting;
 
 	// Use this for initialization
 	void Start () {
-        Player = GameObject.FindGameObjectWithTag("Player");
         diirectionOfShooting = GameObject.FindGameObjectWithTag("DirectionOfShooting");
 	}
 	
@@ -19,27 +16,26 @@ public class BallEngine : MonoBehaviour {
 	void Update () {
         if (diirectionOfShooting.transform.localPosition.x == -0.2f)
         {
-            transform.position += Vector3.left * (Time.deltaTime * Speed);
+            transform.RotateAround(Vector3.zero, Vector3.up, speed * Time.deltaTime);
         }
         else if (diirectionOfShooting.transform.localPosition.x == 0.2f)
         {
-            transform.position += Vector3.right * (Time.deltaTime * Speed);
+            transform.RotateAround(Vector3.zero, Vector3.up, speed * Time.deltaTime * -1);
         }
 
         TimeOut -= Time.deltaTime;
-        if (TimeOut <= 0f)
+        if (TimeOut < 0f)
         {
             Destroy(this.gameObject);
         }
 	}
 
-    //TODO:
-    //Destroy targets
-    //void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.gameObject.tag == "TargetDestroyable")
-    //    {
-    //        Destroy(collision.gameObject);
-    //    }
-    //}
+    //TODO: Collisions
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Target")
+        {
+            Destroy(collision.gameObject);
+        }
+    }
 }
