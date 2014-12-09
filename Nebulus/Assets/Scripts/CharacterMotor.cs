@@ -52,7 +52,7 @@ public class CharacterMotor : MonoBehaviour
         }
 
         // Walk right
-        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             //controller.SetBool(stateHashes[2], true);
             controller.SetBool("WalkRight", true);
@@ -184,7 +184,7 @@ public class CharacterMotor : MonoBehaviour
 
     void ReadyToElevate(GameObject elevator)
     {
-        Debug.Log("ReadyToElevate");
+        //Debug.Log("ReadyToElevate");
         readyToElevate = true;
         Debug.Log(readyToElevate);
         currentElevator = elevator;
