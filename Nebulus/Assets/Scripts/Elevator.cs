@@ -17,8 +17,8 @@ public class Elevator : MonoBehaviour {
     {
         player = GameObject.Find("Character");
         elevatorInitialPosition = this.transform.position.y;
-        Debug.Log(elevatorInitialPosition.ToString());
-        Debug.Log(player.ToString());
+        //Debug.Log(elevatorInitialPosition.ToString());
+        //Debug.Log(player.ToString());
     }
 
 	// Update is called once per frame
@@ -55,7 +55,7 @@ public class Elevator : MonoBehaviour {
         {
             timer += Time.deltaTime;
 
-            Debug.Log(timer.ToString());
+            //Debug.Log(timer.ToString());
             if (timer >= secondsToReturnInInitialPosition)
             {
                 this.transform.DetachChildren();

@@ -6,6 +6,7 @@ public class WaterScript : MonoBehaviour {
     Vector3 initialPositionCharacter;
     Vector3 initialRotationOfCharacter;
     GameObject player;
+    int lives;
 
 	// Use this for initialization
 	void Start () {
@@ -23,6 +24,9 @@ public class WaterScript : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Player")
         {
+            lives = PlayerPrefs.GetInt("Lives") - 1;
+            PlayerPrefs.SetInt("Lives", lives);
+            PlayerPrefs.Save();
             collision.gameObject.transform.position = initialPositionCharacter;
             collision.gameObject.transform.localRotation = Quaternion.Euler(initialRotationOfCharacter);
         }

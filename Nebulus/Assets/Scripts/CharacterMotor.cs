@@ -14,11 +14,12 @@ public class CharacterMotor : MonoBehaviour
     bool isElevateEnable = false;
     bool readyToElevate = false;
     GameObject currentElevator;
+    bool isLive = true;
 
     // Initialization
     void Start()
     {
-
+        PlayerPrefs.SetInt("Lives", 3);
         stateHashes[0] = Animator.StringToHash("WalkLeft");
         stateHashes[1] = Animator.StringToHash("Jump");
         stateHashes[2] = Animator.StringToHash("WalkRight");
@@ -33,139 +34,145 @@ public class CharacterMotor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
-
-        // Walk left
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        if (PlayerPrefs.GetInt("Lives") < 1)
         {
-            //controller.SetBool(stateHashes[0], true);
-            controller.SetBool("WalkLeft", true);
-            parent.transform.RotateAround(Vector3.zero, Vector3.up, rotationSpeed * Time.deltaTime);
+            isLive = false;
         }
-
-        // Stop walking left
-        else if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow))
+        if (isLive)
         {
-            //controller.SetBool(stateHashes[0], false);
-            controller.SetBool("WalkLeft", false);
-        }
 
-        // Walk right
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-        {
-            //controller.SetBool(stateHashes[2], true);
-            controller.SetBool("WalkRight", true);
-            parent.transform.RotateAround(Vector3.zero, Vector3.up, rotationSpeed * Time.deltaTime * -1);
-        }
 
-        // Stop walking right
-        else if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.RightArrow))
-        {
-            //controller.SetBool(stateHashes[2], false);
-            controller.SetBool("WalkRight", false);
-        }
+            // Walk left
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+            {
+                //controller.SetBool(stateHashes[0], true);
+                controller.SetBool("WalkLeft", true);
+                parent.transform.RotateAround(Vector3.zero, Vector3.up, rotationSpeed * Time.deltaTime);
+            }
 
-        // Jump 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            //if ((controller.GetBool(stateHashes[0]) == true) || (controller.GetBool(stateHashes[2]) == true))
-            if (controller.GetBool("WalkLeft") == true || controller.GetBool("WalkRight") == true)
+            // Stop walking left
+            else if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow))
             {
                 //controller.SetBool(stateHashes[0], false);
-                //controller.SetBool(stateHashes[2], false);
-                //controller.SetBool(stateHashes[1], true);
                 controller.SetBool("WalkLeft", false);
+            }
+
+            // Walk right
+            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+            {
+                //controller.SetBool(stateHashes[2], true);
+                controller.SetBool("WalkRight", true);
+                parent.transform.RotateAround(Vector3.zero, Vector3.up, rotationSpeed * Time.deltaTime * -1);
+            }
+
+            // Stop walking right
+            else if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.RightArrow))
+            {
+                //controller.SetBool(stateHashes[2], false);
                 controller.SetBool("WalkRight", false);
             }
-            float jump = Input.GetAxis("Jump");
-            if (jump != 0.0f && isJumpEnable)
-            {
-                isJumpEnable = false;
-                controller.SetBool("Jump", true);
-                var pos = new Vector3(0, 5, 0);
-                parent.rigidbody.velocity = pos;
-            }
-        }
 
-        // Stop jumping 
-        else if (Input.GetKeyUp(KeyCode.Space))
-        {
-            //controller.SetBool(stateHashes[1], false);
-            //controller.SetBool("Jump", false);
-        }
-
-        // In the door
-        else if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            //TODO: Future bug where pogo will not enter a door if standing on an elevator.
-            if (!isElevateEnable)
+            // Jump 
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                GameObject[] allPortals = GameObject.FindGameObjectsWithTag("Portal");
-                var distance = float.MaxValue;
-                GameObject closestPortal = null;
-                foreach (var portal in allPortals)
+                //if ((controller.GetBool(stateHashes[0]) == true) || (controller.GetBool(stateHashes[2]) == true))
+                if (controller.GetBool("WalkLeft") == true || controller.GetBool("WalkRight") == true)
                 {
-                    float dist = Vector3.Distance(portal.transform.position, parent.transform.position);
-                    //Debug.Log(string.Format("Distance between player and {0} is {1}", portal.name, dist));
-                    if (dist < portalReach && dist < distance)
+                    //controller.SetBool(stateHashes[0], false);
+                    //controller.SetBool(stateHashes[2], false);
+                    //controller.SetBool(stateHashes[1], true);
+                    controller.SetBool("WalkLeft", false);
+                    controller.SetBool("WalkRight", false);
+                }
+                float jump = Input.GetAxis("Jump");
+                if (jump != 0.0f && isJumpEnable)
+                {
+                    isJumpEnable = false;
+                    controller.SetBool("Jump", true);
+                    var pos = new Vector3(0, 5, 0);
+                    parent.rigidbody.velocity = pos;
+                }
+            }
+
+            // Stop jumping 
+            else if (Input.GetKeyUp(KeyCode.Space))
+            {
+                //controller.SetBool(stateHashes[1], false);
+                //controller.SetBool("Jump", false);
+            }
+
+            // In the door
+            else if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                //TODO: Future bug where pogo will not enter a door if standing on an elevator.
+                if (!isElevateEnable)
+                {
+                    GameObject[] allPortals = GameObject.FindGameObjectsWithTag("Portal");
+                    var distance = float.MaxValue;
+                    GameObject closestPortal = null;
+                    foreach (var portal in allPortals)
                     {
-                        closestPortal = portal;
-                        distance = dist;
+                        float dist = Vector3.Distance(portal.transform.position, parent.transform.position);
+                        //Debug.Log(string.Format("Distance between player and {0} is {1}", portal.name, dist));
+                        if (dist < portalReach && dist < distance)
+                        {
+                            closestPortal = portal;
+                            distance = dist;
+                        }
+                    }
+                    if (closestPortal != null)
+                    {
+                        //controller.SetBool(stateHashes[3], true);
+                        controller.SetBool("EnterDoor", true);
+                        closestPortal.BroadcastMessage("Activate");
                     }
                 }
-                if (closestPortal != null)
+                if (readyToElevate)
                 {
-                    //controller.SetBool(stateHashes[3], true);
-                    controller.SetBool("EnterDoor", true);
-                    closestPortal.BroadcastMessage("Activate");
-                }
-            }
-            if (readyToElevate)
-            {
-                Debug.Log("ActivateUP" + readyToElevate);
-                if (currentElevator != null)
-                {
-                    Debug.Log("ActivateUP");
-                    currentElevator.gameObject.BroadcastMessage("ActivateUP");
-                }
-            }
-        }
-
-        // Out of the door
-        else if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
-        {
-            //controller.SetBool(stateHashes[3], false);
-            controller.SetBool("EnterDoor", false);
-        }
-
-         // Fall
-        else if (Input.GetKeyDown(KeyCode.F))
-        {
-            //controller.SetBool(stateHashes[4], true);
-            controller.SetBool("Fall", true);
-        }
-
-        // Stop falling
-        else if (Input.GetKeyUp(KeyCode.F))
-        {
-            //controller.SetBool(stateHashes[4], false);
-            controller.SetBool("Fall", false);
-        }
-
-        else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            //Debug.Log("Test");
-            if (readyToElevate)
-            {
-                if (currentElevator != null)
-                {
-                    //Debug.Log("ActivateDown");
-                    if (ElevateDownPermition)
+                    //Debug.Log("ActivateUP" + readyToElevate);
+                    if (currentElevator != null)
                     {
-                        currentElevator.gameObject.BroadcastMessage("ActivateDown");
+                        //Debug.Log("ActivateUP");
+                        currentElevator.gameObject.BroadcastMessage("ActivateUP");
                     }
-                    
+                }
+            }
+
+            // Out of the door
+            else if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
+            {
+                //controller.SetBool(stateHashes[3], false);
+                controller.SetBool("EnterDoor", false);
+            }
+
+             // Fall
+            else if (Input.GetKeyDown(KeyCode.F))
+            {
+                //controller.SetBool(stateHashes[4], true);
+                controller.SetBool("Fall", true);
+            }
+
+            // Stop falling
+            else if (Input.GetKeyUp(KeyCode.F))
+            {
+                //controller.SetBool(stateHashes[4], false);
+                controller.SetBool("Fall", false);
+            }
+
+            else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                //Debug.Log("Test");
+                if (readyToElevate)
+                {
+                    if (currentElevator != null)
+                    {
+                        //Debug.Log("ActivateDown");
+                        if (ElevateDownPermition)
+                        {
+                            currentElevator.gameObject.BroadcastMessage("ActivateDown");
+                        }
+
+                    }
                 }
             }
         }
@@ -186,19 +193,19 @@ public class CharacterMotor : MonoBehaviour
     {
         //Debug.Log("ReadyToElevate");
         readyToElevate = true;
-        Debug.Log(readyToElevate);
+        //Debug.Log(readyToElevate);
         currentElevator = elevator;
     }
 
     void ExitElevator()
     {
-        Debug.Log("ExitElevator");
+        //Debug.Log("ExitElevator");
         readyToElevate = false;
     }
 
     void EnableJump()
     {
-        Debug.Log("Jump enabled!");
+        //Debug.Log("Jump enabled!");
         isJumpEnable = true;
         controller.SetBool("Jump", false);
     }
