@@ -5,7 +5,7 @@ public class EnemyPingPongHorizontal : MonoBehaviour {
 
     public GameObject player;
     float speed = 5;
-    float attackRange;
+    float attackRange=4f;
     float standRange = 0.1f;
     bool isAlive=true;
     public float upperPosition;
@@ -22,9 +22,12 @@ public class EnemyPingPongHorizontal : MonoBehaviour {
        
 
         float dist = Vector3.Distance(transform.position, player.transform.position);
+        float distY = transform.position.z-player.transform.position.z;
         float step = speed * Time.deltaTime;
+        
+        Debug.Log(distY);
 
-        if (dist < attackRange && dist> standRange)
+        if (dist < attackRange && distY<0f)
         {
             transform.LookAt(player.transform.position);
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, step);
@@ -50,14 +53,13 @@ public class EnemyPingPongHorizontal : MonoBehaviour {
         }
         //TODO:
         //PingPong movement update
-        //Destroy enemy with shooting
 	}
 
     void OnCollisionEnter(Collision playerCollision)
     {
         if (playerCollision.gameObject.tag == "Player")
-        {  
-            playerCollision.gameObject.transform.position += new Vector3(-2f, -1f * Time.deltaTime, 2f);
+        {
+            playerCollision.gameObject.transform.position += new Vector3(-3f, -1f * Time.deltaTime, 2f);
             isAlive = false;
         }
     }
