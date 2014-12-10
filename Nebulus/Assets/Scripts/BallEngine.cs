@@ -30,7 +30,6 @@ public class BallEngine : MonoBehaviour {
         }
 	}
 
-    //TODO: Collisions
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Target")

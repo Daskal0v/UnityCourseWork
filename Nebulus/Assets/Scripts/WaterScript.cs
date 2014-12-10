@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class WaterScript : MonoBehaviour {
-
+    //public Animator control;
     Vector3 initialPositionCharacter;
     Vector3 initialRotationOfCharacter;
     GameObject player;
@@ -11,6 +11,7 @@ public class WaterScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
+        //control = player.GetComponent<Animator>();
         initialPositionCharacter = player.transform.position;
         initialRotationOfCharacter = player.transform.eulerAngles;
 	}
@@ -29,6 +30,7 @@ public class WaterScript : MonoBehaviour {
             PlayerPrefs.Save();
             collision.gameObject.transform.position = initialPositionCharacter;
             collision.gameObject.transform.localRotation = Quaternion.Euler(initialRotationOfCharacter);
+            //control.SetBool("Fall", false);
         }
     }
 }

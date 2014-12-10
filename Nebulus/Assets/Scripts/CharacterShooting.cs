@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class CharacterShooting : MonoBehaviour {
-
     GameObject diirectionOfShooting;
     GameObject ball;
 
@@ -14,18 +13,18 @@ public class CharacterShooting : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        // Walk left
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             diirectionOfShooting.transform.localPosition = new Vector3(-0.2f, 0, 0f);
         }
-
         // Walk right
         else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             diirectionOfShooting.transform.localPosition = new Vector3(0.2f, 0, 0f);
         }
-        
-        if (Input.GetKeyDown(KeyCode.RightControl))
+
+        if (Input.GetKeyDown(KeyCode.RightControl) || Input.GetKeyDown(KeyCode.LeftControl))
         {
             Instantiate(ball, diirectionOfShooting.transform.position, diirectionOfShooting.transform.rotation);
         }
@@ -34,5 +33,4 @@ public class CharacterShooting : MonoBehaviour {
             CancelInvoke("Ball");
         }
     }
-   
 }
