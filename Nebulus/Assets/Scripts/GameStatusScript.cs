@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class GameStatusScript : MonoBehaviour {
-    public Texture2D texture; 
     void OnGUI()
     {
         
