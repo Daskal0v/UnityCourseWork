@@ -6,10 +6,12 @@ public class GameStatusScript : MonoBehaviour {
 
     public Text Scores;
     public Text timer;
+    public Button TryAgain;
+    public Button Back;
     public RectTransform[] Lives = new RectTransform[3];
     float time = 0;
 	void Start () {
-	
+        
 	}
 	
 
@@ -47,9 +49,24 @@ public class GameStatusScript : MonoBehaviour {
         if (PlayerPrefs.GetInt("Lives") > 0) { 
             time += Time.deltaTime;
             timer.text = Mathf.Floor(time / 60).ToString("00")+":"+(time % 60).ToString("00");
+            TryAgain.gameObject.SetActive(true);
+            Back.gameObject.SetActive(true);
         }
+        
         
 
 
 	}
+    public void playAgain()
+    {
+        Application.LoadLevel(Application.loadedLevel);
+    }
+    public void backToMenu()
+    {
+        Application.LoadLevel("menu");
+    }
+    public void ResetPoints()
+    {
+        PlayerPrefs.DeleteKey("Scores");
+    }
 }
