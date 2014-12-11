@@ -1,25 +1,32 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class GameStatusScript : MonoBehaviour {
-    void OnGUI()
-    {
-        
-        GUI.Box(new Rect(1, 1, 100, 50), "Scores: " +PlayerPrefs.GetInt("Score")+ "\n Lives: "+ PlayerPrefs.GetInt("Lives"));
-
-        if (PlayerPrefs.GetInt("Lives") < 1)
+    public Text txt;
+    public RectTransform[] Lives = new RectTransform[3];
+	// Use this for initialization
+	void Start () {
+	
+	}
+	
+	// Update is called once per frame
+	void Update () {
+        txt.text = PlayerPrefs.GetInt("Score").ToString();
+        if (PlayerPrefs.GetInt("Score") == 3)
         {
-            GUI.Box(new Rect(Screen.width / 2 - 50, Screen.height / 2 - 70, 100,20), "GAME OVER");
-            if (GUI.Button(new Rect(Screen.width / 2 - 50, Screen.height / 2 - 25, 100, 25), "Back"))
-            {
-                Application.LoadLevel("menu");
-            }
-            if (GUI.Button(new Rect(Screen.width / 2 - 50, Screen.height / 2 - 50, 100, 25), "Try Again?"))
-            {
-                Application.LoadLevel(Application.loadedLevelName);
-            }
+            Lives[0].gameObject.SetActive(true);
+            Lives[1].gameObject.SetActive(true);
+            Lives[2].gameObject.SetActive(true);
         }
-
-        
-    }
+        else if (PlayerPrefs.GetInt("Score") == 2) 
+        {
+            Lives[0].gameObject.SetActive(true);
+            Lives[1].gameObject.SetActive(true);
+        }
+        else if (PlayerPrefs.GetInt("Score") == 1)
+        {
+            Lives[0].gameObject.SetActive(true);
+        }
+	}
 }
