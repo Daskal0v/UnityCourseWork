@@ -13,20 +13,29 @@ public class GameStatusScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         txt.text = PlayerPrefs.GetInt("Score").ToString();
-        if (PlayerPrefs.GetInt("Score") == 3)
+        if (PlayerPrefs.GetInt("Lives") == 3)
         {
             Lives[0].gameObject.SetActive(true);
             Lives[1].gameObject.SetActive(true);
             Lives[2].gameObject.SetActive(true);
         }
-        else if (PlayerPrefs.GetInt("Score") == 2) 
+        else if (PlayerPrefs.GetInt("Lives") == 2) 
         {
             Lives[0].gameObject.SetActive(true);
             Lives[1].gameObject.SetActive(true);
+            Lives[2].gameObject.SetActive(false);
         }
-        else if (PlayerPrefs.GetInt("Score") == 1)
+        else if (PlayerPrefs.GetInt("Lives") == 1)
         {
             Lives[0].gameObject.SetActive(true);
+            Lives[1].gameObject.SetActive(false);
+            Lives[2].gameObject.SetActive(false);
+        }
+        else if (PlayerPrefs.GetInt("Lives") == 0)
+        {
+            Lives[0].gameObject.SetActive(false);
+            Lives[1].gameObject.SetActive(false);
+            Lives[2].gameObject.SetActive(false);
         }
 	}
 }
