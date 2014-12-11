@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class GameStatusScript : MonoBehaviour {
+
     public Text Scores;
     public Text timer;
     public RectTransform[] Lives = new RectTransform[3];
@@ -43,12 +44,11 @@ public class GameStatusScript : MonoBehaviour {
         }
 
         //Set timer 
-        time += Time.deltaTime;
-        //Debug.Log(time);
-        timer.text = Mathf.Floor(time / 60).ToString("00")+":"+(time % 60).ToString("00");
-        // = Mathf.Floor(time / 60).ToString("00");
- ///float seconds = (time % 60).ToString("00);
-
+        if (PlayerPrefs.GetInt("Lives") > 0) { 
+            time += Time.deltaTime;
+            timer.text = Mathf.Floor(time / 60).ToString("00")+":"+(time % 60).ToString("00");
+        }
+        
 
 
 	}
