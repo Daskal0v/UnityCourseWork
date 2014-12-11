@@ -15,12 +15,13 @@ public class LizardScript : MonoBehaviour {
         }
         
 	}
-    void OnCollisionEnter(Collision EnemyCollision)
+    void OnTriggerEnter(Collider BulletCollide)
     {
-        if (EnemyCollision.gameObject.name == "Bullet")
+        Debug.Log("2222222a");
+        if (BulletCollide.gameObject.tag == "Bullet")
         {
+            Debug.Log("Ball Collider");
             isLive = false;
         }
     }
-    
 }
