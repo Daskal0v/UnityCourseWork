@@ -17,10 +17,8 @@ public class LizardScript : MonoBehaviour {
 	}
     void OnTriggerEnter(Collider BulletCollide)
     {
-        Debug.Log("2222222a");
         if (BulletCollide.gameObject.tag == "Bullet")
         {
-            Debug.Log("Ball Collider");
             isLive = false;
         }
     }

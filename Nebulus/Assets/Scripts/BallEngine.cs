@@ -30,11 +30,11 @@ public class BallEngine : MonoBehaviour {
         }
 	}
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider TargetCollide)
     {
-        if (collision.gameObject.tag == "Target")
+        if (TargetCollide.gameObject.tag == "Target")
         {
-            Destroy(collision.gameObject);
+            Destroy(TargetCollide.gameObject);
         }
     }
 }

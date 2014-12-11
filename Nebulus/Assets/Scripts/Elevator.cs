@@ -70,7 +70,7 @@ public class Elevator : MonoBehaviour {
 
     void OnCollisionEnter(Collision collision)
     {
-            Debug.Log("OnCollisionEnter");
+            //Debug.Log("OnCollisionEnter");
 
             if (collision.gameObject.CompareTag("Player"))
             {
@@ -81,7 +81,7 @@ public class Elevator : MonoBehaviour {
 
     void OnCollisionExit(Collision collision)
     {
-        Debug.Log("OnCollisionExit");
+        //Debug.Log("OnCollisionExit");
         //this does not work, don't know why
         
         player.gameObject.BroadcastMessage("ExitElevator");
