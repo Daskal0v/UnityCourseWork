@@ -3,16 +3,20 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class GameStatusScript : MonoBehaviour {
-    public Text txt;
+    public Text Scores;
+    public Text timer;
     public RectTransform[] Lives = new RectTransform[3];
-	// Use this for initialization
+    float time = 0;
 	void Start () {
 	
 	}
 	
-	// Update is called once per frame
+
 	void Update () {
-        txt.text = PlayerPrefs.GetInt("Score").ToString();
+        //Display Scores        
+        Scores.text = PlayerPrefs.GetInt("Score").ToString();
+        
+        //Display Lives of Pogo
         if (PlayerPrefs.GetInt("Lives") == 3)
         {
             Lives[0].gameObject.SetActive(true);
@@ -37,5 +41,15 @@ public class GameStatusScript : MonoBehaviour {
             Lives[1].gameObject.SetActive(false);
             Lives[2].gameObject.SetActive(false);
         }
+
+        //Set timer 
+        time += Time.deltaTime;
+        //Debug.Log(time);
+        timer.text = Mathf.Floor(time / 60).ToString("00")+":"+(time % 60).ToString("00");
+        // = Mathf.Floor(time / 60).ToString("00");
+ ///float seconds = (time % 60).ToString("00);
+
+
+
 	}
 }
