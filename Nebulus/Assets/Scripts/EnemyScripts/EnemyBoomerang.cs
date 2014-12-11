@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyBoomerang : MonoBehaviour {
+public class EnemyBoomerang : MonoBehaviour
+{
     public int howOften;
     public float speed;
     public bool lethal;
@@ -15,17 +16,17 @@ public class EnemyBoomerang : MonoBehaviour {
     int direction;
     float playerHeight;
 
-	// Use this for initialization
-	void Start () 
+    // Use this for initialization
+    void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         resetBoomerang();
         initialPosition = transform.position;
         Debug.Log(initialPosition);
-	}
-	
-	// Update is called once per frame
-	void Update () 
+    }
+
+    // Update is called once per frame
+    void Update()
     {
         //Debug.Log(boomerangIsActive);
         if (countDown <= 0 && !boomerangIsActive)
@@ -42,7 +43,7 @@ public class EnemyBoomerang : MonoBehaviour {
             {
                 transform.localPosition = new Vector3(screenWidth, 0, 0);
             }
-            else if(direction == 1)
+            else if (direction == 1)
             {
                 transform.localPosition = new Vector3(-screenWidth, 0, 0);
             }
@@ -66,7 +67,7 @@ public class EnemyBoomerang : MonoBehaviour {
             float newHeight = playerHeight - player.transform.position.y;
 
             //NOTE: This can be done like that:
-            //transform.localPosition = new Vector3(transform.localPosition.x - Time.deltaTime * speed * (-1 * 0), newHeight/2, 0);
+            //transform.localPosition = new Vector3(transform.localPosition.x - Time.deltaTime * speed * (-1 * direction), newHeight/2, 0);
             if (direction == 0)
             {
                 transform.localPosition = new Vector3(transform.localPosition.x - Time.deltaTime * speed, newHeight / 2, 0);
@@ -84,7 +85,17 @@ public class EnemyBoomerang : MonoBehaviour {
                 }
             }
         }
-	}
+    }
+
+    void OnCollisionEnter(Collision theCollision)
+    {
+        //Debug.Log("Shout Collision");
+        if (theCollision.gameObject.name != "Character")
+        {
+            resetBoomerang();
+        }
+    }
+
 
     void StorePlayerHeight()
     {
@@ -94,12 +105,12 @@ public class EnemyBoomerang : MonoBehaviour {
     /// <summary>
     /// After boomerang disapears from the screan it needs to be reset with a new timer and out of view.
     /// </summary>
-    void resetBoomerang ()
+    void resetBoomerang()
     {
-        Debug.Log("Shout reset boomerang");
+        //Debug.Log("Shout reset boomerang");
 
         boomerangIsActive = false;
-        float newTimer = Random.Range(1*howOften, 2*howOften);
+        float newTimer = Random.Range(1 * howOften, 2 * howOften);
         countDown = newTimer;
         transform.position = initialPosition;
         direction = -1;
