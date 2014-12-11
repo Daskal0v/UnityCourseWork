@@ -13,12 +13,12 @@ public class CharacterShooting : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        // Walk left
+        //Shoot left
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             diirectionOfShooting.transform.localPosition = new Vector3(-0.2f, 0, 0f);
         }
-        // Walk right
+        // Shoot right
         else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             diirectionOfShooting.transform.localPosition = new Vector3(0.2f, 0, 0f);

@@ -3,14 +3,14 @@ using System.Collections;
 
 public class EnemyPingPongHorizontal : MonoBehaviour {
 
-    private GameObject player;
     private Vector3 movingDirection = Vector3.up;
     private bool isAlive = true;
-    public float standRange;
+    public GameObject player;
+    public float speed;
     public float attackRange;
+    public float killRange;
     public float upperPosition;
     public float lowerPosition;
-    public float speed;
 
 	// Use this for initialization
 	void Start () {
@@ -27,8 +27,8 @@ public class EnemyPingPongHorizontal : MonoBehaviour {
             transform.LookAt(player.transform.position);
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, step);
         }
-        
-        gameObject.transform.Translate(movingDirection * Time.deltaTime * speed);
+
+        gameObject.transform.Translate(movingDirection * Time.smoothDeltaTime * speed);
 
         if (gameObject.transform.position.y < lowerPosition)
         {
@@ -38,16 +38,15 @@ public class EnemyPingPongHorizontal : MonoBehaviour {
         {
             movingDirection = Vector3.down;
         }
-     
-        
-        if (dist< standRange)
+
+        if (dist< killRange)
         {
             isAlive = false;
         }
 
         if (!isAlive)
         {
-            transform.gameObject.SetActive(false);
+            Destroy(gameObject);
         }
 	}
 
