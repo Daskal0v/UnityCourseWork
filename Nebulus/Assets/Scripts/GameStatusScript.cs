@@ -6,8 +6,8 @@ public class GameStatusScript : MonoBehaviour {
 
     public Text Scores;
     public Text timer;
-    public Button TryAgain;
-    public Button Back;
+    //public Button TryAgain;
+    //public Button Back;
     public Texture TryAgainTexture;
     public Texture BackToMenu;
     public RectTransform[] Lives = new RectTransform[3];
