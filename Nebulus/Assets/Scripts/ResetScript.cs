@@ -3,8 +3,10 @@ using System.Collections;
 
 public class ResetScript : MonoBehaviour {
 
-    public void playAgain()
+    public void playAgain(bool isClick)
     {
+        Debug.Log("asads");
+        Debug.Log(isClick);
         Application.LoadLevel(Application.loadedLevel);
     }
     public void backToMenu()

@@ -8,8 +8,11 @@ public class GameStatusScript : MonoBehaviour {
     public Text timer;
     public Button TryAgain;
     public Button Back;
+    public Texture TryAgainTexture;
+    public Texture BackToMenu;
     public RectTransform[] Lives = new RectTransform[3];
     float time = 0;
+    bool showUI = false;
 	void Start () {
         
 	}
@@ -49,13 +52,31 @@ public class GameStatusScript : MonoBehaviour {
         if (PlayerPrefs.GetInt("Lives") > 0) { 
             time += Time.deltaTime;
             timer.text = Mathf.Floor(time / 60).ToString("00")+":"+(time % 60).ToString("00");
-            TryAgain.gameObject.SetActive(true);
-            Back.gameObject.SetActive(true);
+            
         }
-        
+        else
+        {
+            //TryAgain.gameObject.SetActive(true);
+            //Back.gameObject.SetActive(true);
+            showUI = true;
+        }
         
 
 
 	}
+    void OnGUI()
+    {
+        if (showUI)
+        {
+            if (GUI.Button(new Rect(Screen.width / 2 - 50, Screen.height / 2, 50, 50),TryAgainTexture))
+            {
+                Application.LoadLevel(Application.loadedLevel);
+            }
+            if (GUI.Button(new Rect(Screen.width / 2 , Screen.height / 2, 50, 50), BackToMenu))
+            {
+                Application.LoadLevel("menu");
+            }
+        }
+    }
 
 }
