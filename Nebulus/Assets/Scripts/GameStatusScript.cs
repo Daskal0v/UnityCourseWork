@@ -10,6 +10,7 @@ public class GameStatusScript : MonoBehaviour {
     //public Button Back;
     public Texture TryAgainTexture;
     public Texture BackToMenu;
+    public Texture Exit;
     public RectTransform[] Lives = new RectTransform[3];
     float time = 0;
     bool showUI = false;
@@ -76,6 +77,10 @@ public class GameStatusScript : MonoBehaviour {
             {
                 Application.LoadLevel("menu");
             }
+        }
+        if (GUI.Button(new Rect(0, Screen.height - 50, 50, 50), Exit))
+        {
+            Application.LoadLevel("menu");
         }
     }
 
