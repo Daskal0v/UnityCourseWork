@@ -3,9 +3,11 @@ using System.Collections;
 
 public class BallEngine : MonoBehaviour {
 
-    float TimeOut = 1f;
-    float speed = 20f;
+    public float speed = 20f;
     public GameObject diirectionOfShooting;
+    private bool isActive = true;
+    private float TimeOut = 1f;
+    
 
 	// Use this for initialization
 	void Start () {
@@ -28,13 +30,19 @@ public class BallEngine : MonoBehaviour {
         {
             Destroy(this.gameObject);
         }
+
+        if (!isActive)
+        {
+            Destroy(this.gameObject);
+        }
 	}
 
-    void OnTriggerEnter(Collider TargetCollide)
+    void OnTriggerEnter(Collider targetCollide)
     {
-        if (TargetCollide.gameObject.tag == "Target")
+        if (targetCollide.gameObject.tag == "Target")
         {
-            Destroy(TargetCollide.gameObject);
+            Destroy(targetCollide.gameObject);
+            isActive = false;
         }
     }
 }
