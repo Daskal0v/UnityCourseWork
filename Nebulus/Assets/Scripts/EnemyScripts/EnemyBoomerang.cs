@@ -78,7 +78,7 @@ public class EnemyBoomerang : MonoBehaviour
             }
             else if (direction == 1)
             {
-                transform.localPosition = new Vector3(transform.localPosition.x + Time.deltaTime * speed, newHeight / 2, 0);
+                transform.localPosition = new Vector3(transform.localPosition.x + Time.deltaTime * speed, (newHeight / 2) + 0.1f, 0);
                 if (transform.localPosition.x >= screenWidth)
                 {
                     resetBoomerang();
