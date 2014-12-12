@@ -70,7 +70,7 @@ public class EnemyBoomerang : MonoBehaviour
             //transform.localPosition = new Vector3(transform.localPosition.x - Time.deltaTime * speed * (-1 * direction), newHeight/2, 0);
             if (direction == 0)
             {
-                transform.localPosition = new Vector3(transform.localPosition.x - Time.deltaTime * speed, newHeight / 2, 0);
+                transform.localPosition = new Vector3(transform.localPosition.x - Time.deltaTime * speed, (newHeight / 2) + 0.1f, 0);
                 if (transform.localPosition.x <= -screenWidth)
                 {
                     resetBoomerang();
@@ -90,10 +90,10 @@ public class EnemyBoomerang : MonoBehaviour
     void OnCollisionEnter(Collision theCollision)
     {
         //Debug.Log("Shout Collision");
-        if (theCollision.gameObject.name != "Character")
-        {
+        //if (theCollision.gameObject.name != "Character")
+        //{
             resetBoomerang();
-        }
+        //}
     }
 
 
