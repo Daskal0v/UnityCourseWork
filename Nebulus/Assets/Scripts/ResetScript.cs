@@ -15,6 +15,6 @@ public class ResetScript : MonoBehaviour {
     }
     public void ResetPoints()
     {
-        PlayerPrefs.DeleteKey("Scores");
+        PlayerPrefs.DeleteKey("Score");
     }
 }
