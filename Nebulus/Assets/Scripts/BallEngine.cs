@@ -3,11 +3,10 @@ using System.Collections;
 
 public class BallEngine : MonoBehaviour {
 
-    public float speed = 20f;
-    public GameObject diirectionOfShooting;
     private bool isActive = true;
-    private float TimeOut = 1f;
-    
+    private float timeOut = 1f;
+    public float speed = 35f;
+    public GameObject diirectionOfShooting;
 
 	// Use this for initialization
 	void Start () {
@@ -25,8 +24,8 @@ public class BallEngine : MonoBehaviour {
             transform.RotateAround(Vector3.zero, Vector3.up, speed * Time.deltaTime * -1);
         }
 
-        TimeOut -= Time.deltaTime;
-        if (TimeOut < 0f)
+        timeOut -= Time.deltaTime;
+        if (timeOut < 0f)
         {
             Destroy(this.gameObject);
         }
