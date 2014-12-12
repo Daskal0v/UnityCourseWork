@@ -5,7 +5,7 @@ public class MainCamera : MonoBehaviour {
     public Transform Hero;
 	// Use this for initialization
 	void Start () {
-        
+        audio.volume = PlayerPrefs.GetFloat("Volume");
 	}
 	
 	// Update is called once per frame
