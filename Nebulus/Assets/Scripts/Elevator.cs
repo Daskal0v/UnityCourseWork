@@ -89,7 +89,7 @@ public class Elevator : MonoBehaviour {
 
     public void ActivateUP()
     {
-        Debug.Log("ElevateUP!!!");
+       // Debug.Log("ElevateUP!!!");
 
         activateUp = true;
         activateDown = false;
@@ -97,7 +97,7 @@ public class Elevator : MonoBehaviour {
 
     public void ActivateDown()
     {
-        Debug.Log("ElevateDown!!!");
+        //Debug.Log("ElevateDown!!!");
 
         activateDown = true;
         activateUp = false;

@@ -18,7 +18,7 @@ public class Portal : MonoBehaviour
 
     public void Activate()
     {
-        Debug.Log("Transport!!!");
+        //Debug.Log("Transport!!!");
         GameObject player = GameObject.Find("Character");
         //We need to change this value if Pogo spawns to neer or far from a portal.
         float towerRadiusToPathRadius = 1.15f;

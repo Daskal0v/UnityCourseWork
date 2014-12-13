@@ -18,11 +18,11 @@ public class BouncyEnemy : MonoBehaviour
         GameObject player = GameObject.Find("Character");
         //Debug.Log(player.name);
         float distance = Vector3.Distance(transform.position, player.transform.position);
-        Debug.Log(string.Format("Distance is: {0}", distance));
+        //Debug.Log(string.Format("Distance is: {0}", distance));
         if (distance < 2f)
         {
             float deltaH = player.transform.position.y - transform.position.y;
-            Debug.Log(string.Format("Delta H: {0}", deltaH));
+            //Debug.Log(string.Format("Delta H: {0}", deltaH));
             if (deltaH > 0.6 && isJumpReady)
             {
                 Vector3 jump = new Vector3(0, 5, 0);

@@ -17,7 +17,7 @@ public class HorizontalMovingEnemy : MonoBehaviour {
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("OnCollisionEnter");
+        //Debug.Log("OnCollisionEnter");
         sign = -1*sign;
     }
 }
